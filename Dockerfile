@@ -1,9 +1,6 @@
 FROM 		debian:wheezy
 MAINTAINER 	Robin <robin@naas.io>
 
-# add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
-RUN groupadd -r nginx && useradd -r -g nginx nginx
-
 # add Dotdeb mirror https://www.dotdeb.org/
 RUN apt-key adv --keyserver keys.gnupg.net --recv-key 89DF5277 \
 	&& echo "deb http://packages.dotdeb.org wheezy all" > /etc/apt/sources.list.d/dotdeb.list \
